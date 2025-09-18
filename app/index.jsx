@@ -1,10 +1,11 @@
+import { NavigationContainer } from "@react-navigation/native";
+import { Stack } from "expo-router";
 import { View } from "react-native";
-import Navbar from "../components/Navbar";
-import Scrollview from "../components/Scrollview";
-import StylesheetComp from "../components/Stylesheet";
+import About from "../app/src/screens/About";
+import Contact from "../app/src/screens/Contact";
 import "../global.css";
 
-// If the file is named 'StylesheetComp.jsx', update the import as follows:
+// If the file is named 'Sty./src/components/Stylesheet the import as follows:
 
 export default function Index() {
   // const theme = useColorScheme();
@@ -14,11 +15,18 @@ export default function Index() {
   // const router = useRouter();
   return (
     <View className="w-full h-full bg-gray-100">
-      <Navbar />
+      {/* <Navbar />
       <StylesheetComp />
-      <View className="mx-2 mt-2 container ">
-        <Scrollview />
-      </View>
+      {/* <Scrollview /> */}
+      {/* <InputHandle /> */}
+
+      {/* Navigation */}
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="About" component={About} />
+          <Stack.Screen name="Contact" component={Contact} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </View>
   );
 }

@@ -6,18 +6,8 @@ module.exports = function (api) {
       "nativewind/babel",
     ],
     plugins: [
-      [
-        "module-resolver",
-        {
-          root: ["./src"], // your main source folder
-          alias: {
-            "@": "./src", // 👈 now @ means your src folder
-          },
-        },
-      ],
+      "expo-router/babel",
+      "react-native-reanimated/plugin",
     ],
-
-    // If using Expo Router, include:
-    // plugins: ["expo-router/babel", "react-native-reanimated/plugin"]
   };
 };

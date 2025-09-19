@@ -7,6 +7,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const { width, height } = Dimensions.get("window");
 
@@ -57,16 +58,18 @@ export default function ImageViewer({ uri }) {
   }));
 
   return (
-    <GestureDetector gesture={composed}>
-      <View className="flex-1 bg-black justify-center items-center">
-        {loading && <ActivityIndicator size="large" color="white" />}
-        <Animated.Image
-          source={{ uri }}
-          resizeMode="contain"
-          style={[{ width, height, opacity: loading ? 0 : 1 }, animatedStyle]}
-          onLoadEnd={() => setLoading(false)}
-        />
-      </View>
-    </GestureDetector>
+    <SafeAreaProvider>
+      <GestureDetector gesture={composed}>
+        <View className="flex-1 bg-black justify-center items-center">
+          {loading && <ActivityIndicator size="large" color="white" />}
+          <Animated.Image
+            source={{ uri }}
+            resizeMode="contain"
+            style={[{ width, height, opacity: loading ? 0 : 1 }, animatedStyle]}
+            onLoadEnd={() => setLoading(false)}
+          />
+        </View>
+      </GestureDetector>
+    </SafeAreaProvider>
   );
 }

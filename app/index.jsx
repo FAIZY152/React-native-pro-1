@@ -2,13 +2,11 @@ import { Link } from "expo-router";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import "../global.css";
-import ImageViewer from "./src/components/Pages/ImageViewer";
-
 export default function Index() {
   return (
     <SafeAreaProvider>
       <SafeAreaView className="flex-1 bg-white">
-        <View className="flex-1 justify-center items-center px-4">
+        <View className="flex-1 justify-center items-center px-4 w-full">
           <Text className="text-2xl font-bold text-black text-center">
             Khan is here for match
           </Text>
@@ -26,14 +24,15 @@ export default function Index() {
               </TouchableOpacity>
             </Link>
           </View>
-
-          <ImageViewer
-            uri={
-              "https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg"
-            }
-          />
         </View>
       </SafeAreaView>
+      {/* <View className="w-full min-h-screen">
+        <ImageViewer
+          uri={
+            "https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg"
+          }
+        />
+      </View> */}
     </SafeAreaProvider>
   );
 }

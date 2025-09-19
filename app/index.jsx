@@ -2,6 +2,7 @@ import { Link } from "expo-router";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import "../global.css";
+import ImageViewer from "./src/components/Pages/ImageViewer";
 
 export default function Index() {
   return (
@@ -11,17 +12,26 @@ export default function Index() {
           <Text className="text-2xl font-bold text-black text-center">
             Khan is here for match
           </Text>
-          <Link href={"/details"}>
-            {" "}
-            <Pressable className="bg-blue-600 px-6 py-3 rounded-xl">
-              <Text className="text-white font-medium">Details</Text>
-            </Pressable>
-          </Link>
-          <Link href={"/about"}>
-            <TouchableOpacity className="bg-pink-600 px-6 py-3 rounded-xl">
-              <Text className="text-white font-medium">About</Text>
-            </TouchableOpacity>
-          </Link>
+          <View className="flex justify-start items-center gap-3 ">
+            <Link href="/details" asChild>
+              <Pressable className="bg-blue-600 px-6 py-3 rounded-xl">
+                <Text className="text-white font-medium">Details</Text>
+              </Pressable>
+            </Link>
+
+            {/* About button */}
+            <Link href="/about" asChild>
+              <TouchableOpacity className="bg-pink-600 px-6 py-3 rounded-xl">
+                <Text className="text-white font-medium">About</Text>
+              </TouchableOpacity>
+            </Link>
+          </View>
+
+          <ImageViewer
+            uri={
+              "https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg"
+            }
+          />
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
